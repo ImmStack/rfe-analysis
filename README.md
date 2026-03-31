@@ -28,7 +28,7 @@ Analyze a professional profile against US talent visa criteria:
 Clone this repo and use the built-in slash commands:
 
 ```bash
-git clone https://github.com/ImmStack/rfe-analysis.git
+git clone https://github.com/AIStack-Legal/rfe-analysis.git
 cd rfe-analysis
 
 # Analyze an RFE
@@ -50,8 +50,8 @@ claude "/assess-visa" < your-profile.txt
 
 Don't want to set anything up? Use the free hosted version:
 
-- **RFE Analysis:** [s.immstack.ai/rfe](https://s.immstack.ai/rfe) — upload PDF, get instant analysis
-- **Visa Assessment:** [s.immstack.ai](https://s.immstack.ai) — paste LinkedIn URL, get instant assessment
+- **RFE Analysis:** [rfe.aistack.legal](https://rfe.aistack.legal) — upload PDF, get instant analysis
+- **Visa Assessment:** [aistack.legal](https://aistack.legal) — paste LinkedIn URL, get instant assessment
 
 No sign-up required. We don't store your documents.
 
