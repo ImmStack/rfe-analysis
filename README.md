@@ -50,8 +50,8 @@ claude "/assess-visa" < your-profile.txt
 
 Don't want to set anything up? Use the free hosted version:
 
-- **RFE Analysis:** [selfservice.immstack.ai/rfe](https://selfservice.immstack.ai/rfe) — upload PDF, get instant analysis
-- **Visa Assessment:** [selfservice.immstack.ai/linkedin](https://selfservice.immstack.ai/linkedin) — paste LinkedIn URL, get instant assessment
+- **RFE Analysis:** [s.immstack.ai/rfe](https://s.immstack.ai/rfe) — upload PDF, get instant analysis
+- **Visa Assessment:** [s.immstack.ai](https://s.immstack.ai) — paste LinkedIn URL, get instant assessment
 
 No sign-up required. We don't store your documents.
 
