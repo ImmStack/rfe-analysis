@@ -1,109 +1,121 @@
-# RFE Analysis
+<p align="center">
+  <img src="https://img.shields.io/badge/Skills-5-blue" alt="Skills">
+  <img src="https://img.shields.io/badge/Visa_Types-6-green" alt="Visa Types">
+  <img src="https://img.shields.io/badge/License-MIT-yellow" alt="MIT License">
+  <img src="https://img.shields.io/github/stars/AIStack-Legal/rfe-analysis?style=social" alt="Stars">
+</p>
 
-Open-source AI prompts for analyzing US immigration cases. Built for people navigating the visa process — whether you're a developer, attorney, or someone who just got an RFE and needs to understand what USCIS is asking for.
+# Immigration AI Skills
 
-## What's Inside
+Open-source AI prompts for US immigration cases. Works with Claude, ChatGPT, or any LLM. Built for developers, attorneys, and anyone navigating the visa process.
 
-### [RFE Analysis](skills/rfe-analysis/SKILL.md)
-Upload a USCIS Request for Evidence (RFE) letter and get a structured breakdown:
-- **Issue identification** — what USCIS is challenging, categorized by type (evidence gap, legal argument, policy interpretation, credibility)
-- **Severity assessment** — critical / high / medium / low for each issue
-- **Evidence patterns** — what types of documentation are commonly used in similar situations
-- **General observations** — trends and patterns for this type of RFE
+**5 skills** covering the full immigration workflow: strategy, evidence planning, petition drafting support, RFE analysis, and expert letter frameworks.
 
-Supports: H-1B, EB-1A, EB-2 NIW, O-1A, L-1A/B
+## Skills
 
-### [Visa Assessment](skills/visa-assessment/SKILL.md)
-Analyze a professional profile against US talent visa criteria:
-- **EB-1A** — Extraordinary Ability (10 criteria, Kazarian two-step)
-- **EB-1B** — Outstanding Researcher
-- **EB-2 NIW** — National Interest Waiver (Dhanasar three-prong)
-- **O-1A / O-1B** — Extraordinary Ability / Achievement
-- Criterion-by-criterion analysis with strength ratings
+| Skill | What it does | Lines |
+|-------|-------------|-------|
+| [Petition Strategy](skills/petition-strategy/SKILL.md) | Figure out which visa to pursue. Compares EB-1A vs NIW vs O-1A vs EB-1B with criteria mapping | 368 |
+| [Evidence Checklist](skills/evidence-checklist/SKILL.md) | Per-criterion evidence guide with Tier 1/2/3 strength ratings for EB-1A, NIW, O-1A | 565 |
+| [Expert Letter Framework](skills/expert-letter/SKILL.md) | Structure recommendation letters. Independent vs dependent experts, per-criterion guidance | 410 |
+| [RFE Analysis](skills/rfe-analysis/SKILL.md) | Break down a USCIS RFE notice. Issue mapping, deficiency classification, severity, service center patterns | 355 |
+| [Visa Assessment](skills/visa-assessment/SKILL.md) | Evaluate a profile against visa criteria. Strength ratings per criterion | 265 |
 
 ## Quick Start
 
-### Option 1: Use with Claude Code
-
-Clone this repo and use the built-in slash commands:
+### Claude Code
 
 ```bash
 git clone https://github.com/AIStack-Legal/rfe-analysis.git
 cd rfe-analysis
 
+# Plan which visa to pursue
+claude "/plan-strategy"
+
+# Generate evidence checklist
+claude "/evidence-checklist"
+
 # Analyze an RFE
-claude "/analyze-rfe" < your-rfe-text.txt
+claude "/analyze-rfe"
 
 # Assess a profile
-claude "/assess-visa" < your-profile.txt
+claude "/assess-visa"
+
+# Draft expert letter framework
+claude "/draft-expert-letter"
 ```
 
-### Option 2: Use with Any LLM
+### ChatGPT / Claude / Any LLM
 
-1. Open the skill file you want (e.g., `skills/rfe-analysis/SKILL.md`)
+1. Open any skill file (e.g., `skills/rfe-analysis/SKILL.md`)
 2. Copy the **System Prompt** section
-3. Paste it as the system message in ChatGPT, Claude, or any LLM
-4. Paste your RFE text or professional profile as the user message
-5. Get your analysis
+3. Paste as the system message in your LLM
+4. Paste your RFE text, profile, or question as the user message
 
-### Option 3: Free Hosted Tool
+### Free Hosted Tool
 
-Don't want to set anything up? Use the free hosted version:
+No setup needed:
 
-- **RFE Analysis:** [rfe.aistack.legal](https://rfe.aistack.legal) — upload PDF, get instant analysis
-- **Visa Assessment:** [aistack.legal](https://aistack.legal) — paste LinkedIn URL, get instant assessment
+- **RFE Analysis:** [aistack.legal](https://aistack.legal) — upload PDF, get instant analysis
+- **Visa Assessment:** [aistack.legal/linkedin](https://aistack.legal/linkedin) — paste LinkedIn URL
 
-No sign-up required. We don't store your documents.
+No sign-up. Documents are not stored.
+
+## What's Covered
+
+| Visa Type | Strategy | Evidence | Expert Letters | RFE Analysis | Assessment |
+|-----------|----------|----------|----------------|--------------|------------|
+| EB-1A (Extraordinary Ability) | All 10 criteria | Tier 1/2/3 per criterion | Per-criterion guidance | Full support | Full support |
+| EB-2 NIW (National Interest Waiver) | Dhanasar 3 prongs | Per-prong evidence | Prong-specific | Full support | Full support |
+| O-1A (Extraordinary Ability) | All 8 criteria | Tier 1/2/3 per criterion | Per-criterion guidance | Full support | Full support |
+| EB-1B (Outstanding Researcher) | 2 requirements | Basic | Basic | Partial | Full support |
+| O-1B (Arts/Entertainment) | 6 criteria | Basic | Basic | Partial | Full support |
+| H-1B (Specialty Occupation) | 4 RFE areas | N/A | N/A | Full support | N/A |
 
 ## How It Works
 
-### RFE Analysis Methodology
+Each skill contains a detailed system prompt encoding immigration law knowledge from public sources:
 
-The RFE skill categorizes every issue USCIS raises into one of four types:
+- **8 CFR** (Code of Federal Regulations) — the actual rules
+- **USCIS Policy Manual** — how USCIS interprets the rules
+- **Published AAO decisions** — how the Administrative Appeals Office has applied the rules
+- **Federal case law** — Kazarian v. USCIS (EB-1A framework), Matter of Dhanasar (NIW framework)
 
-| Category | What it means | Difficulty |
-|----------|--------------|------------|
-| **Evidence Gap** | Missing documents USCIS requested | Usually easiest |
-| **Legal Argument** | Existing evidence needs better framing | Medium |
-| **Policy Interpretation** | Case conflicts with USCIS standards | Harder |
-| **Credibility** | Inconsistencies in statements/documents | Most serious |
+The prompts classify, analyze, and explain — they don't give legal advice. Every skill includes UPL compliance rules that keep the AI in educational territory.
 
-Each issue gets a severity rating and a description of how similar cases are typically addressed — based on publicly available USCIS policy, regulations, and AAO decision patterns.
+### RFE Analysis Deep Dive
 
-### Visa Assessment Methodology
+The RFE skill classifies every issue USCIS raises:
 
-The assessment skill evaluates profiles against the actual regulatory criteria:
+| Category | What it means | Typical difficulty |
+|----------|--------------|-------------------|
+| Evidence Gap | Missing documents | Usually easiest |
+| Legal Argument | Evidence needs better framing | Medium |
+| Policy Interpretation | Case conflicts with USCIS standards | Harder |
+| Credibility | Inconsistencies in documents | Most serious |
 
-- **EB-1A**: 10 criteria per 8 CFR 204.5(h)(3), with Kazarian two-step analysis
-- **O-1A**: 8 criteria per 8 CFR 214.2(o)(3)(iii)
-- **NIW**: Dhanasar three-prong framework
-- Each criterion rated as strong / moderate / weak based on available evidence
+Deficiency types: `NO_EVIDENCE`, `INSUFFICIENT_QUANTITY`, `INSUFFICIENT_QUALITY`, `WRONG_EVIDENCE_TYPE`, `MISSING_CONTEXT`, `FINAL_MERITS`
 
-## Examples
-
-- [NIW RFE Analysis Example](skills/rfe-analysis/examples/niw-rfe-example.md) — synthetic example showing a three-prong Dhanasar challenge
+Service center detection from receipt number (TSC = quantitative focus, NSC = narrative focus).
 
 ## Important Disclaimer
 
-These tools provide **educational information only** and do not constitute legal advice. Every immigration case is unique — the same evidence can lead to different outcomes depending on the specific facts, the adjudicator, and the service center.
+These tools provide **educational information only** and do not constitute legal advice. Every immigration case is unique.
 
 **Always consult with a qualified U.S. immigration attorney about your specific situation.**
 
-The analysis uses general language ("in cases like these", "common patterns") rather than personalized conclusions. This is intentional — we provide information about how the immigration system works, not advice about what you should do.
+The skills use general language ("in cases like these", "common patterns") rather than personalized conclusions. This is intentional.
 
 ## Contributing
 
-Found a way to improve the prompts? PRs welcome. Some ideas:
+PRs welcome:
 
-- Additional visa types (EB-3, H-1B1, TN, E-2)
-- More example analyses (must be synthetic — no real case data)
-- Translations of the prompts
+- Additional visa types (EB-3, TN, E-2, EB-5)
+- More examples (must be synthetic, no real case data)
+- Translations
 - Integration guides for other LLM platforms
+- Improvements to existing skills
 
 ## License
 
-MIT — use it however you want.
-
----
-
-MIT License
+MIT
